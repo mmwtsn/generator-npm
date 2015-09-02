@@ -1,0 +1,30 @@
+{
+  "name": "@attn/<%= name %>",
+  "version": "0.0.0",
+  "description": "<%= description %>",
+  <% if (open) { %>
+  "license": "MIT",
+  <% } else { %>
+  "license": "UNLICENSED",
+  "private": true,
+  <% } -%>
+  "author": "<%= author %> <%= email %>",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/attn/<%= name %>.git"
+  },
+  "bugs": {
+    "url": "https://github.com/attn/<%= name %>/issues"
+  },
+  "homepage": "https://github.com/attn/<%= name %>#readme",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "standard",
+    "test": "mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "standard": "^5.1.0"
+  }
+}

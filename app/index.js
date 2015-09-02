@@ -59,7 +59,11 @@ module.exports = generators.Base.extend({
       done()
     }.bind(this))
   },
-  log: function () {
-    console.log(this.answers)
+  writing: function () {
+    this.fs.copyTpl(
+      this.templatePath('package.json'),
+      this.destinationPath('package.json'),
+      this.answers
+    )
   }
 })
