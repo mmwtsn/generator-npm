@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "Generate an ATTN: npm module",
   "main": "app/index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "standard"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/attn/generator-npm.git"
@@ -21,6 +23,10 @@
     "url": "https://github.com/attn/generator-npm/issues"
   },
   "homepage": "https://github.com/attn/generator-npm#readme",
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "yeoman-generator": "^0.20.3"
+  },
+  "devDependencies": {
+    "standard": "^5.1.1"
+  }
 }
