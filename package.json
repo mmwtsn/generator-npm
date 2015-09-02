@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/attn/generator-npm#readme",
   "dependencies": {
-    "yeoman-generator": "^0.20.3"
+    "yeoman-generator": "^0.20.3",
+    "yosay": "^1.0.5"
   },
   "devDependencies": {
     "standard": "^5.1.1"
