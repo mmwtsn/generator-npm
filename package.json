@@ -1,0 +1,26 @@
+{
+  "name": "@attn/generator-npm",
+  "version": "0.0.0",
+  "description": "Generate an ATTN: npm module",
+  "main": "app/index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attn/generator-npm.git"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "yeoman",
+    "generator",
+    "template",
+    "attn"
+  ],
+  "author": "M. Maxwell Watson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/attn/generator-npm/issues"
+  },
+  "homepage": "https://github.com/attn/generator-npm#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}
