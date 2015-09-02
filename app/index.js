@@ -60,10 +60,24 @@ module.exports = generators.Base.extend({
     }.bind(this))
   },
   writing: function () {
-    this.fs.copyTpl(
-      this.templatePath('package.json'),
-      this.destinationPath('package.json'),
-      this.answers
-    )
+    var files = [
+      '.gitignore',
+      'LICENSE',
+      'README.md',
+      'index.js',
+      'package.json',
+      'test/index.js',
+      'test/mocha.opts'
+    ]
+
+    files.forEach(function (file) {
+      if (file !== 'LICENSE' || this.answers.open) {
+        this.fs.copyTpl(
+          this.templatePath(file),
+          this.destinationPath(file),
+          this.answers
+        )
+      }
+    }.bind(this))
   }
 })
