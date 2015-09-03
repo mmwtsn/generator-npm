@@ -26,6 +26,21 @@ function runGenerator (options, done) {
     .on('end', done)
 }
 
+/**
+ * White list of files that this generator creates by default
+ * @private
+ */
+
+const files = [
+  '.gitignore',
+  'package.json',
+  'LICENSE',
+  'README.md',
+  'index.js',
+  'test/mocha.opts',
+  'test/index.js'
+]
+
 describe('generator-npm', () => {
   describe('by default', () => {
   })
