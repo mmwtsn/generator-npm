@@ -41,9 +41,14 @@ const files = [
   'test/index.js'
 ]
 
+/**
+ * Tests
+ * @private
+ */
+
 describe('generator-npm', () => {
-  describe('by default', () => {
-    beforeEach((done) => {
+  describe('with default values', () => {
+    beforeEach(done => {
       runGenerator({}, done)
     })
 
@@ -52,21 +57,93 @@ describe('generator-npm', () => {
 
       done()
     })
+  })
 
-    it('is open source', (done) => {
+  describe('when open source', () => {
+    beforeEach(done => {
+      runGenerator({ open: true }, done)
+    })
+
+    it('generates a MIT license', (done) => {
       assert.fileContent('LICENSE', /MIT/)
-      assert.fileContent('package.json', /"license": "MIT"/)
-      assert.noFileContent('package.json', /private/)
 
       done()
     })
 
-    it('uses ES6', (done) => {
-      assert.fileContent('package.json', /babel/)
+    it('adds "MIT" to the package\'s "license" property', (done) => {
+      assert.fileContent('package.json', /"license": "MIT"/)
+
+      done()
+    })
+  })
+
+  describe('when closed source', () => {
+    beforeEach(done => {
+      runGenerator({ open: false }, done)
+    })
+
+    it('does not generate a license', (done) => {
+      assert.noFile('LICENSE')
+
+      done()
+    })
+
+    it('adds "UNLICENSED" to the package\'s "license" property', (done) => {
+      assert.fileContent('package.json', /"license": "UNLICENSED"/)
+
+      done()
+    })
+  })
+
+  describe('when ES6', () => {
+    beforeEach(done => {
+      runGenerator({ es6: true }, done)
+    })
+
+    it('uses `import`', (done) => {
       assert.fileContent('test/index.js', /import/)
-      assert.fileContent('index.js', /export/)
       assert.noFileContent('test/index.js', /require/)
+
+      done()
+    })
+
+    it('uses `export`', (done) => {
+      assert.fileContent('index.js', /export default/)
       assert.noFileContent('index.js', /module.exports/)
+
+      done()
+    })
+
+    it('requires Babel', (done) => {
+      assert.fileContent('package.json', /babel/)
+      assert.fileContent('test/mocha.opts', /babel/)
+
+      done()
+    })
+  })
+
+  describe('when ES5', () => {
+    beforeEach(done => {
+      runGenerator({ es6: false }, done)
+    })
+
+    it('uses `require`', (done) => {
+      assert.fileContent('test/index.js', /require/)
+      assert.noFileContent('test/index.js', /import/)
+
+      done()
+    })
+
+    it('uses `module.exports`', (done) => {
+      assert.fileContent('index.js', /module.exports/)
+      assert.noFileContent('index.js', /export default/)
+
+      done()
+    })
+
+    it('does not require Babel', (done) => {
+      assert.noFileContent('package.json', /babel/)
+      assert.noFileContent('test/mocha.opts', /babel/)
 
       done()
     })
