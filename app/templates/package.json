@@ -6,7 +6,6 @@
   "license": "MIT",
   <% } else { %>
   "license": "UNLICENSED",
-  "private": true,
   <% } -%>
   "author": "<%= author %> <%= email %>",
   "repository": {
