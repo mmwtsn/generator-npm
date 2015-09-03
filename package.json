@@ -4,7 +4,7 @@
   "description": "Generate an ATTN: npm module",
   "main": "app/index.js",
   "scripts": {
-    "pretest": "standard",
+    "pretest": "standard app/index.js test/index.js",
     "test": "mocha"
   },
   "repository": {
