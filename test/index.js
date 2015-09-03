@@ -43,5 +43,32 @@ const files = [
 
 describe('generator-npm', () => {
   describe('by default', () => {
+    beforeEach((done) => {
+      runGenerator({}, done)
+    })
+
+    it('creates the default files', (done) => {
+      assert.file(files)
+
+      done()
+    })
+
+    it('is open source', (done) => {
+      assert.fileContent('LICENSE', /MIT/)
+      assert.fileContent('package.json', /"license": "MIT"/)
+      assert.noFileContent('package.json', /private/)
+
+      done()
+    })
+
+    it('uses ES6', (done) => {
+      assert.fileContent('package.json', /babel/)
+      assert.fileContent('test/index.js', /import/)
+      assert.fileContent('index.js', /export/)
+      assert.noFileContent('test/index.js', /require/)
+      assert.noFileContent('index.js', /module.exports/)
+
+      done()
+    })
   })
 })
