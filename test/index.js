@@ -52,7 +52,7 @@ describe('generator-npm', () => {
       runGenerator({}, done)
     })
 
-    it('creates the default files', (done) => {
+    it('creates the default files', done => {
       assert.file(files)
 
       done()
@@ -64,13 +64,13 @@ describe('generator-npm', () => {
       runGenerator({ open: true }, done)
     })
 
-    it('generates a MIT license', (done) => {
+    it('generates a MIT license', done => {
       assert.fileContent('LICENSE', /MIT/)
 
       done()
     })
 
-    it('adds "MIT" to the package\'s "license" property', (done) => {
+    it('adds "MIT" to the package\'s "license" property', done => {
       assert.fileContent('package.json', /"license": "MIT"/)
 
       done()
@@ -82,13 +82,13 @@ describe('generator-npm', () => {
       runGenerator({ open: false }, done)
     })
 
-    it('does not generate a license', (done) => {
+    it('does not generate a license', done => {
       assert.noFile('LICENSE')
 
       done()
     })
 
-    it('adds "UNLICENSED" to the package\'s "license" property', (done) => {
+    it('adds "UNLICENSED" to the package\'s "license" property', done => {
       assert.fileContent('package.json', /"license": "UNLICENSED"/)
 
       done()
@@ -100,21 +100,21 @@ describe('generator-npm', () => {
       runGenerator({ es6: true }, done)
     })
 
-    it('uses `import`', (done) => {
+    it('uses `import`', done => {
       assert.fileContent('test/index.js', /import/)
       assert.noFileContent('test/index.js', /require/)
 
       done()
     })
 
-    it('uses `export`', (done) => {
+    it('uses `export`', done => {
       assert.fileContent('index.js', /export default/)
       assert.noFileContent('index.js', /module.exports/)
 
       done()
     })
 
-    it('requires Babel', (done) => {
+    it('requires Babel', done => {
       assert.fileContent('package.json', /babel/)
       assert.fileContent('test/mocha.opts', /babel/)
 
@@ -127,21 +127,21 @@ describe('generator-npm', () => {
       runGenerator({ es6: false }, done)
     })
 
-    it('uses `require`', (done) => {
+    it('uses `require`', done => {
       assert.fileContent('test/index.js', /require/)
       assert.noFileContent('test/index.js', /import/)
 
       done()
     })
 
-    it('uses `module.exports`', (done) => {
+    it('uses `module.exports`', done => {
       assert.fileContent('index.js', /module.exports/)
       assert.noFileContent('index.js', /export default/)
 
       done()
     })
 
-    it('does not require Babel', (done) => {
+    it('does not require Babel', done => {
       assert.noFileContent('package.json', /babel/)
       assert.noFileContent('test/mocha.opts', /babel/)
 
