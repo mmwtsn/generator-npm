@@ -16,7 +16,6 @@ var path = require('path')
  * Helper function to call the @attn/npm generator
  * @param {Object} options - Prompt response values mocking user input
  * @param {function} done - Mocha's async complete callback function
- * @private
  */
 
 function runGenerator (options, done) {
@@ -28,7 +27,6 @@ function runGenerator (options, done) {
 
 /**
  * White list of files that this generator creates by default
- * @private
  */
 
 const files = [
