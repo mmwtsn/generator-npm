@@ -2,6 +2,7 @@ var chalk = require('chalk')
 var generators = require('yeoman-generator')
 var slugify = require('slugify')
 var yosay = require('yosay')
+var validatePackageName = require('validate-npm-package-name')
 
 module.exports = generators.Base.extend({
   prompting: function () {
@@ -18,7 +19,16 @@ module.exports = generators.Base.extend({
         type: 'input',
         name: 'name',
         message: 'What\'s the name of your module?',
-        default: slugify(this.appname)
+        validate: function (response) {
+          var valid = Boolean(validatePackageName(response).validForNewPackages)
+
+          if (valid) {
+            return true
+          } else {
+            return 'Invalid npm package name!'
+          }
+        },
+        default: slugify(this.appname).toLowerCase()
       },
       {
         type: 'input',
