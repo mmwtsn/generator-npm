@@ -1,6 +1,5 @@
 <p align='right'><img src="https://s3.amazonaws.com/uploads.hipchat.com/133247/964958/yArWHi5iMIqyOmp/attn_logo--dark-01.jpg" width="80"/></p>
-
-# generator-npm
+[![wercker status](https://app.wercker.com/status/4db7f591e664772969f650c9d1978217/s "wercker status")](https://app.wercker.com/project/bykey/4db7f591e664772969f650c9d1978217)
 
 Generate npm modules with default tooling for ATTN:'s workflow using Yeoman.
 
