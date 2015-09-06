@@ -1,7 +1,7 @@
 /* global describe, it */
 <% if (es6) { %>
 import assert from 'assert'
-import index from '..'
+import index from '../src'
 
 describe('Module', () => {
   it('exports an object', () => {

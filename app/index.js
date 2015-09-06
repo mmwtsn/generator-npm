@@ -72,20 +72,36 @@ module.exports = generators.Base.extend({
       '.gitignore',
       'LICENSE',
       'README.md',
-      'index.js',
       'package.json',
+      'index.js',
+      'src/index.js',
       'test/index.js',
       'test/mocha.opts'
-    ]
+    ].filter(function (file) {
+      // Filter out license for closed source modules
+      if (file === 'LICENSE' && !this.answers.open) {
+        return false
+      }
+
+      // Filter out transpiler target for ES6 modules
+      if (file === 'index.js' && this.answers.es6) {
+        return false
+      }
+
+      // Filter out source directory structure for ES5 modules
+      if (file === 'src/index.js' && !this.answers.es6) {
+        return false
+      }
+
+      return true
+    }.bind(this))
 
     files.forEach(function (file) {
-      if (file !== 'LICENSE' || this.answers.open) {
-        this.fs.copyTpl(
-          this.templatePath(file),
-          this.destinationPath(file),
-          this.answers
-        )
-      }
+      this.fs.copyTpl(
+        this.templatePath(file),
+        this.destinationPath(file),
+        this.answers
+      )
     }.bind(this))
   }
 })

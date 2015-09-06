@@ -18,6 +18,9 @@
   "homepage": "https://github.com/attn/<%= name %>#readme",
   "main": "index.js",
   "scripts": {
+    <% if (es6) { %>
+    "build": "babel src/index.js -o index.js",
+    <% } %>
     "pretest": "standard",
     "test": "mocha"
   },

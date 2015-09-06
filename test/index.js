@@ -34,7 +34,7 @@ const files = [
   'package.json',
   'LICENSE',
   'README.md',
-  'index.js',
+  'src/index.js',
   'test/mocha.opts',
   'test/index.js'
 ]
@@ -106,8 +106,28 @@ describe('generator-npm', () => {
     })
 
     it('uses `export`', done => {
-      assert.fileContent('index.js', /export default/)
-      assert.noFileContent('index.js', /module.exports/)
+      assert.fileContent('src/index.js', /export default/)
+      assert.noFileContent('src/index.js', /module.exports/)
+
+      done()
+    })
+
+    it('starts with a source directory', done => {
+      assert.fileContent('test/index.js', /src/)
+      assert.file('src/index.js')
+      assert.noFile('index.js')
+
+      done()
+    })
+
+    it('transpiles to ES5', done => {
+      assert.fileContent('package.json', /"build": "babel src\/index.js -o/)
+
+      done()
+    })
+
+    it('ignores the transpiled ES5', done => {
+      assert.fileContent('.gitignore', /index.js/)
 
       done()
     })
