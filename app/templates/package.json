@@ -2,11 +2,11 @@
   "name": "@attn/<%= name %>",
   "version": "0.0.0",
   "description": "<%= description %>",
-  <% if (open) { %>
+<% if (open) { -%>
   "license": "MIT",
-  <% } else { %>
+<% } else { -%>
   "license": "UNLICENSED",
-  <% } -%>
+<% } -%>
   "author": "<%= author %> <%= email %>",
   "repository": {
     "type": "git",
@@ -18,17 +18,17 @@
   "homepage": "https://github.com/attn/<%= name %>#readme",
   "main": "index.js",
   "scripts": {
-    <% if (es6) { %>
+<% if (es6) { -%>
     "build": "babel src/index.js -o index.js",
-    <% } %>
+<% } -%>
     "pretest": "standard",
     "test": "mocha"
   },
   "dependencies": {},
   "devDependencies": {
-    <% if (es6) { %>
+<% if (es6) { -%>
     "babel": "^5.8.23",
-    <% } %>
+<% } -%>
     "mocha": "^2.2.5",
     "standard": "^5.1.0"
   }

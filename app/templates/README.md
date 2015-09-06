@@ -19,7 +19,6 @@ Quick example goes here.
 ```javascript
 console.log('Hallo')
 ```
-
 <% if (open) { %>
 ## License
 
