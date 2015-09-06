@@ -20,9 +20,7 @@ module.exports = generators.Base.extend({
         name: 'name',
         message: 'What\'s the name of your module?',
         validate: function (response) {
-          var valid = Boolean(validatePackageName(response).validForNewPackages)
-
-          if (valid) {
+          if (validatePackageName(response).validForNewPackages) {
             return true
           } else {
             return 'Invalid npm package name!'
