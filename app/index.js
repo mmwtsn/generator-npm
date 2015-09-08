@@ -72,6 +72,7 @@ module.exports = generators.Base.extend({
 
     this.prompt(prompts, function (answers) {
       this.answers = answers
+      this.answers.personal = this.options.personal
       this.answers.name = slugify(answers.name)
 
       done()
