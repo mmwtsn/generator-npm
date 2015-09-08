@@ -23,7 +23,7 @@
   "main": "index.js",
   "scripts": {
 <% if (es6) { -%>
-    "build": "babel src/index.js -o index.js",
+    "build": "babel src/index.js -out-file build.js",
 <% } -%>
     "pretest": "standard",
     "test": "mocha"
