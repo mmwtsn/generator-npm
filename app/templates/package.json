@@ -20,7 +20,11 @@
     "url": "https://github.com/attn/<%= name %>/issues"
   },
   "homepage": "https://github.com/attn/<%= name %>#readme",
+<% if (es6) { -%>
+  "main": "build.js",
+<% } else { -%>
   "main": "index.js",
+<% } -%>
   "scripts": {
 <% if (es6) { -%>
     "build": "babel src/index.js -out-file build.js",
