@@ -18,10 +18,11 @@ var path = require('path')
  * @param {function} done - Mocha's async complete callback function
  */
 
-function runGenerator (options, done) {
+function runGenerator (options, prompts, done) {
   helpers
     .run(path.join(__dirname, '../app'))
-    .withPrompts(options)
+    .withOptions(options)
+    .withPrompts(prompts)
     .on('end', done)
 }
 
@@ -47,7 +48,7 @@ const files = [
 describe('generator-npm', () => {
   describe('with default values', () => {
     beforeEach(done => {
-      runGenerator({}, done)
+      runGenerator({}, {}, done)
     })
 
     it('creates the default files', done => {
@@ -59,7 +60,7 @@ describe('generator-npm', () => {
 
   describe('when open source', () => {
     beforeEach(done => {
-      runGenerator({ open: true }, done)
+      runGenerator({}, { open: true }, done)
     })
 
     it('generates a MIT license', done => {
@@ -77,7 +78,7 @@ describe('generator-npm', () => {
 
   describe('when closed source', () => {
     beforeEach(done => {
-      runGenerator({ open: false }, done)
+      runGenerator({}, { open: false }, done)
     })
 
     it('does not generate a license', done => {
@@ -95,7 +96,7 @@ describe('generator-npm', () => {
 
   describe('when ES6', () => {
     beforeEach(done => {
-      runGenerator({ es6: true }, done)
+      runGenerator({}, { es6: true }, done)
     })
 
     it('uses `import`', done => {
@@ -142,7 +143,7 @@ describe('generator-npm', () => {
 
   describe('when ES5', () => {
     beforeEach(done => {
-      runGenerator({ es6: false }, done)
+      runGenerator({}, { es6: false }, done)
     })
 
     it('uses `require`', done => {

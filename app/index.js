@@ -8,6 +8,8 @@ module.exports = generators.Base.extend({
   prompting: function () {
     var done = this.async()
 
+    this.option('personal')
+
     this.log(yosay(
       'Welcome to the interactive ' +
       chalk.red('ATTN:') +
