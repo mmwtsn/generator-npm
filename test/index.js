@@ -167,4 +167,22 @@ describe('generator-npm', () => {
       done()
     })
   })
+
+  describe('--personal', () => {
+    beforeEach(done => {
+      runGenerator(
+        { personal: true },
+        { author: 'A. Person', email: 'aperson@attn.com' },
+        done
+      )
+    })
+
+    it('assigns copyright correctly', done => {
+      assert.fileContent('LICENSE', /aperson@attn.com/)
+      assert.fileContent('LICENSE', /A. Person/)
+      assert.noFileContent('LICENSE', /Our Time Media/)
+
+      done()
+    })
+  })
 })
