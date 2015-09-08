@@ -28,7 +28,15 @@ module.exports = generators.Base.extend({
             return 'Invalid npm package name!'
           }
         },
-        default: '@attn/' + slugify(this.appname).toLowerCase()
+        default: function () {
+          var name = slugify(this.appname).toLowerCase()
+
+          if (this.options.personal) {
+            return name
+          } else {
+            return '@attn/' + name
+          }
+        }.bind(this)
       },
       {
         type: 'input',
