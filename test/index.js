@@ -128,7 +128,7 @@ describe('generator-npm', () => {
     })
 
     it('ignores the transpiled ES5', done => {
-      assert.fileContent('.gitignore', /index.js/)
+      assert.fileContent('.gitignore', /build.js/)
 
       done()
     })
