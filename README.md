@@ -30,14 +30,49 @@ When you run the generator, you will be asked a few questions about your module'
 
 Most of these fields land in your module's `package.json` file. For more information on these fields see the [npm documentation](https://docs.npmjs.com/files/package.json).
 
+### Prompts
+
+This generator can generate modules a few different ways.
+
+#### Open source (default)
+
+An MIT license will be added to the project with copyright assigned to Our Time
+Media, Inc. and the package.json's `license` property will be set to "MIT".
+
+#### Closed source
+
+No LICENSE file will be provided and the package.json's `license` property will
+be set to "UNLICENSED".
+
+#### ES6 (default)
+
+This option adds the Babel transpiler as a dev. dependency and exposes it under
+the `build` npm run script. Depending on how your module is used you may want to
+call `build` during the `prepublish` script.
+
+The following directory structure is generated:
+
+```
+.
+├── .gitignore
+└── src
+    └── index.js
+```
+
+The `build` script outputs to an index.js file in the root of your project which
+is Git ignored.
+
+#### ES5
+
+Vanilla ES5 projects do not package Babel or a source directory. An index.js
+file is generated in the project root.
+
 ### Options
 
-This generator can generate modules that are either:
-
-- Open or closed source
-- ES6 or ES5
-
-The former of each option is set as the default. For more full list of options browse the [templates directory](https://github.com/attn/generator-npm/tree/master/app/templates).
+If you want to use this generator to create a module not intended for use by
+ATTN: pass the `--personal` flag. This will remove the @attn scope from the
+module name and, if open source, assign the license's copyright to provided
+author's name and e-mail address.
 
 ## License
 
