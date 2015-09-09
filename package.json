@@ -18,7 +18,10 @@
     "template",
     "attn"
   ],
-  "author": "M. Maxwell Watson",
+  "author": {
+    "name": "M. Maxwell Watson",
+    "email": "hi@mmwtsn.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/attn/generator-npm/issues"
