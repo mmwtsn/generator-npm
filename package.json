@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Generate an ATTN: npm module",
   "main": "app/index.js",
+  "files": [
+    "app"
+  ],
   "scripts": {
     "pretest": "standard app/index.js test/index.js",
     "test": "mocha"
