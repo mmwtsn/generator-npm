@@ -30,7 +30,7 @@
 <% } -%>
   "scripts": {
 <% if (es6) { -%>
-    "build": "babel src/index.js -out-file build.js",
+    "build": "babel src/index.js --out-file build.js",
 <% } -%>
     "pretest": "standard",
     "test": "mocha"
