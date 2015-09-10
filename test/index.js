@@ -122,13 +122,7 @@ describe('generator-npm', () => {
     })
 
     it('transpiles to ES5', done => {
-      assert.fileContent('package.json', /"build": "babel src\/index.js -o/)
-
-      done()
-    })
-
-    it('ignores the transpiled ES5', done => {
-      assert.fileContent('.gitignore', /build.js/)
+      assert.fileContent('package.json', /"prepublish": "babel/)
 
       done()
     })

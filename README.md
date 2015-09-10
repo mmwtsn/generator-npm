@@ -47,8 +47,7 @@ be set to "UNLICENSED".
 #### ES6 (default)
 
 This option adds the Babel transpiler as a dev. dependency and exposes it under
-the `build` npm run script. Depending on how your module is used you may want to
-call `build` during the `prepublish` script.
+the `prepublish` npm run script as transpilation is not a local concern.
 
 The following directory structure is generated:
 
@@ -58,9 +57,6 @@ The following directory structure is generated:
 └── src
     └── index.js
 ```
-
-The `build` script outputs to an index.js file in the root of your project which
-is Git ignored.
 
 #### ES5
 
