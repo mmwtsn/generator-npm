@@ -5,7 +5,7 @@ import index from '../src'
 
 describe('Module', () => {
   it('exports an object', () => {
-    assert.equal(typeof index, 'object')
+    assert.strictEqual(typeof index, 'object')
   })
 })
 <% } else { %>
@@ -14,7 +14,7 @@ var index = require('..')
 
 describe('Module', function () {
   it('exports an object', function () {
-    assert.equal(typeof index, 'object')
+    assert.strictEqual(typeof index, 'object')
   })
 })
 <% } -%>
