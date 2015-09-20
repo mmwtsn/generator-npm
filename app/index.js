@@ -80,7 +80,7 @@ module.exports = generators.Base.extend({
   },
   writing: function () {
     var files = [
-      '.gitignore',
+      'gitignore',
       'LICENSE',
       'README.md',
       'package.json',
@@ -110,7 +110,7 @@ module.exports = generators.Base.extend({
     files.forEach(function (file) {
       this.fs.copyTpl(
         this.templatePath(file),
-        this.destinationPath(file),
+        this.destinationPath(file === 'gitignore' ? '.gitignore' : file),
         this.answers
       )
     }.bind(this))
