@@ -1,23 +1,21 @@
 /* global beforeEach, describe, it */
 
 /**
- * Module dependencies
+ * See the Yeoman documentation for the full list of helper functions.
  *
- * See the Yeoman documentation for the full list of helper functions
  * {@link http://yeoman.github.io/generator/assert.html}
  * {@link http://yeoman.github.io/generator/helpers.html}
  */
-
 var assert = require('yeoman-generator').assert
 var helpers = require('yeoman-generator').test
 var path = require('path')
 
 /**
- * Helper function to call the @attn/npm generator
- * @param {Object} options - Prompt response values mocking user input
- * @param {function} done - Mocha's async complete callback function
+ * Helper function to call the @attn/npm generator.
+ *
+ * @param {Object} options - Prompt response values mocking user input.
+ * @param {function} done - Mocha's async complete callback function.
  */
-
 function runGenerator (options, prompts, done) {
   helpers
     .run(path.join(__dirname, '../app'))
@@ -26,10 +24,7 @@ function runGenerator (options, prompts, done) {
     .on('end', done)
 }
 
-/**
- * White list of files that this generator creates by default
- */
-
+// White list of files that this generator creates by default
 const files = [
   '.gitignore',
   'package.json',
@@ -38,11 +33,6 @@ const files = [
   'src/index.js',
   'test/index.js'
 ]
-
-/**
- * Tests
- * @private
- */
 
 describe('generator-npm', () => {
   describe('with default values', () => {
