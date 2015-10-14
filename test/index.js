@@ -36,7 +36,6 @@ const files = [
   'LICENSE',
   'README.md',
   'src/index.js',
-  'test/mocha.opts',
   'test/index.js'
 ]
 
@@ -129,7 +128,6 @@ describe('generator-npm', () => {
 
     it('requires Babel', done => {
       assert.fileContent('package.json', /babel/)
-      assert.fileContent('test/mocha.opts', /babel/)
 
       done()
     })
@@ -156,7 +154,6 @@ describe('generator-npm', () => {
 
     it('does not require Babel', done => {
       assert.noFileContent('package.json', /babel/)
-      assert.noFileContent('test/mocha.opts', /babel/)
 
       done()
     })

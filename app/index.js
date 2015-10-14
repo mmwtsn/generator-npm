@@ -86,8 +86,7 @@ module.exports = generators.Base.extend({
       'package.json',
       'index.js',
       'src/index.js',
-      'test/index.js',
-      'test/mocha.opts'
+      'test/index.js'
     ].filter(function (file) {
       // Filter out license for closed source modules
       if (file === 'LICENSE' && !this.answers.open) {

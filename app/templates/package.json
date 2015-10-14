@@ -32,14 +32,19 @@
     "prepublish": "babel src/index.js --out-file index.js",
 <% } -%>
     "pretest": "standard",
-    "test": "mocha"
+<% if (es6) { -%>
+    "test": "babel-node test/index.js | tap-spec"
+<% } else { -%>
+    "test": "node test/index.js | tap-spec"
+<% } -%>
   },
   "dependencies": {},
   "devDependencies": {
 <% if (es6) { -%>
     "babel": "^5.8.23",
 <% } -%>
-    "mocha": "^2.2.5",
+    "tap-spec": "^4.1.0",
+    "tape": "^4.2.1",
     "standard": "^5.1.0"
   }
 }

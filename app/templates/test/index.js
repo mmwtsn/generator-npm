@@ -1,20 +1,17 @@
-/* global describe, it */
-<% if (es6) { %>
-import assert from 'assert'
+<% if (es6) { -%>
+import test from 'tape'
 import index from '../src'
 
-describe('Module', () => {
-  it('exports an object', () => {
-    assert.strictEqual(typeof index, 'object')
-  })
+test('module', t => {
+  t.equal(typeof index, 'object', 'default export is an object')
+  t.end()
 })
-<% } else { %>
-var assert = require('assert')
+<% } else { -%>
+var test = require('tape')
 var index = require('..')
 
-describe('Module', function () {
-  it('exports an object', function () {
-    assert.strictEqual(typeof index, 'object')
-  })
+test('module', function (t) {
+  t.equal(typeof index, 'object', 'exports an object')
+  t.end()
 })
 <% } -%>
