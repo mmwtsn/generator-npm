@@ -1,6 +1,6 @@
 {
   "name": "@attn/generator-npm",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Generate an ATTN: npm module",
   "main": "app/index.js",
   "files": [
