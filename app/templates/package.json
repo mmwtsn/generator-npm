@@ -30,11 +30,10 @@
   "scripts": {
 <% if (es6) { -%>
     "prepublish": "babel src/index.js --out-file index.js",
-<% } -%>
-    "pretest": "standard",
-<% if (es6) { -%>
+    "pretest": "standard src",
     "test": "babel-node test/index.js | tap-spec"
 <% } else { -%>
+    "pretest": "standard index.js",
     "test": "node test/index.js | tap-spec"
 <% } -%>
   },
