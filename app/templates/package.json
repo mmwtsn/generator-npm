@@ -17,12 +17,24 @@
   },
   "repository": {
     "type": "git",
+<% if (!personal) { -%>
     "url": "git+ssh://git@github.com/attn/<%= name %>.git"
+<% } else { -%>
+    "url": "git+ssh://git@github.com/<%= username %>/<%= name %>.git"
+<% } -%>
   },
   "bugs": {
+<% if (!personal) { -%>
     "url": "https://github.com/attn/<%= name %>/issues"
+<% } else { -%>
+    "url": "https://github.com/<%= username %>/<%= name %>/issues"
+<% } -%>
   },
+<% if (!personal) { -%>
   "homepage": "https://github.com/attn/<%= name %>#readme",
+<% } else { -%>
+  "homepage": "https://github.com/<%= username %>/<%= name %>#readme",
+<% } -%>
   "main": "index.js",
   "files": [
     "index.js"
