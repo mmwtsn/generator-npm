@@ -57,6 +57,11 @@ module.exports = generators.Base.extend({
         default: this.user.git.email
       },
       {
+        type: 'input',
+        name: 'username',
+        message: 'What is their GitHub username?'
+      },
+      {
         type: 'confirm',
         name: 'open',
         message: 'Is this module open source?',
