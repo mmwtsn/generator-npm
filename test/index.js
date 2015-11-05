@@ -153,7 +153,7 @@ describe('generator-npm', () => {
     beforeEach(done => {
       runGenerator(
         { personal: true },
-        { author: 'A. Person', email: 'aperson@attn.com' },
+        { author: 'A. Person', email: 'aperson@attn.com', username: 'aperson' },
         done
       )
     })
@@ -162,6 +162,12 @@ describe('generator-npm', () => {
       assert.fileContent('LICENSE', /aperson@attn.com/)
       assert.fileContent('LICENSE', /A. Person/)
       assert.noFileContent('LICENSE', /Our Time Media/)
+
+      done()
+    })
+
+    it('assigns the GitHub username correctly', done => {
+      assert.fileContent('package.json', /git@github.com\/aperson/)
 
       done()
     })
