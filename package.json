@@ -29,6 +29,10 @@
   "bugs": {
     "url": "https://github.com/attn/generator-npm/issues"
   },
+  "hooks": {
+    "pre-commit": "npm test -s",
+    "commit-msg": "hook-commit-msg"
+  },
   "homepage": "https://github.com/attn/generator-npm#readme",
   "dependencies": {
     "chalk": "^1.1.1",
@@ -39,6 +43,8 @@
   },
   "devDependencies": {
     "babel": "^5.8.23",
+    "hook-commit-msg": "0.0.1",
+    "hook-script-runner": "0.0.1",
     "mocha": "^2.3.0",
     "standard": "^5.1.1"
   }
